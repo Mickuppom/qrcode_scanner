@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qrscan/qrscan.dart' as scanner;
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key}) : super(key: key);
@@ -10,7 +11,12 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   TextEditingController input = new TextEditingController();
 
-  void scan() {}
+  void scan() async {
+    String cameraScanResult = await scanner.scan();
+    setState(() {
+      input.text = cameraScanResult;
+    });
+  }
 
   void share() {}
 
@@ -41,12 +47,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Column(
                     children: [
                       ElevatedButton.icon(
-                        onPressed: () {},
+                        onPressed: copy,
                         icon: Icon(Icons.copy),
                         label: Text("Copy"),
                       ),
                       ElevatedButton.icon(
-                        onPressed: () {},
+                        onPressed: share,
                         icon: Icon(Icons.share),
                         label: Text("Share"),
                       ),
@@ -57,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Container(
               child: ElevatedButton.icon(
-                onPressed: () {},
+                onPressed: scan,
                 icon: Icon(Icons.camera),
                 label: Text("Scan"),
               ),
