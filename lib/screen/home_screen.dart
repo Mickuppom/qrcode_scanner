@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:qrscan/qrscan.dart' as scanner;
 
 class HomeScreen extends StatefulWidget {
@@ -22,7 +23,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void copy() {}
 
-  void checkPermission() {}
+  void checkPermission() async {
+    if (await Permission.camera.request().isGranted) {}
+  }
 
   @override
   Widget build(BuildContext context) {
