@@ -42,7 +42,12 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text("QR Code Scaner"),
       ),
       body: !isCameraPermissionEnabled
-          ? Center()
+          ? Center(
+              child: ElevatedButton(
+                onPressed: () => openAppSettings(),
+                child: Text("Setting"),
+              ),
+            )
           : Container(
               child: Column(
                 children: [
