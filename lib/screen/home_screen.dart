@@ -8,6 +8,10 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  void scan() {}
+  void share() {}
+  void copy() {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,6 +49,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ],
+            ),
+            Container(
+              child: ElevatedButton.icon(
+                onPressed: () {},
+                icon: Icon(Icons.camera),
+                label: Text("Scan"),
+              ),
             ),
           ],
         ),
