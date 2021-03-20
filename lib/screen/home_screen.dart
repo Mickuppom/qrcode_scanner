@@ -8,8 +8,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  TextEditingController input = new TextEditingController();
+
   void scan() {}
+
   void share() {}
+
   void copy() {}
 
   @override
@@ -25,6 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Stack(
               children: [
                 TextFormField(
+                  controller: input,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                   ),
