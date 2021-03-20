@@ -22,6 +22,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void copy() {}
 
+  void checkPermission() {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
