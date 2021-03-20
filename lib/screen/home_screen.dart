@@ -11,6 +11,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   TextEditingController input = new TextEditingController();
+  bool isCameraPermissionEnabled = false;
 
   void scan() async {
     String cameraScanResult = await scanner.scan();
@@ -24,7 +25,14 @@ class _HomeScreenState extends State<HomeScreen> {
   void copy() {}
 
   void checkPermission() async {
-    if (await Permission.camera.request().isGranted) {}
+    if (await Permission.camera.request().isGranted) {
+      setState(() {
+        isCameraPermissionEnabled = true;
+      });
+    }
+    if (await Permission.camera.isPermanentlyDenied) {
+      openAppSettings();
+    }
   }
 
   @override
